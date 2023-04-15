@@ -13,7 +13,7 @@ exit 1
 #variables
 apptmp=/tmp/.app$$.tmp
 appr=$(echo "$app" | rev)
-appid=$(flatpak list --columns=application | rev | grep ^"$appr" | rev)
+appidtest=$(flatpak list --columns=application | cut -d\. -f3 | grep ^"$app") 
 
 #functions
 apprun () {
@@ -27,7 +27,7 @@ exit
 }
 
 applist () {
-flatpak list --columns=application | rev | cut -d\. -f1 | rev | sort -u > "$apptmp" 
+flatpak list --columns=application | cut -d\. -f3 | sort -u | grep -v 'default\|openh264\|Platform' > "$apptmp"
 echo -n "Available apps: "
 while read file; do
 echo -n "$file,"
@@ -39,10 +39,16 @@ exit
 }
 
 #conditions
-if [ -n "$appid" -a -n "$app" ]; then
-apprun || (echo "$0 $app is not an available flatpak application"; applist)
+if [ -n "$app" -a -n "$appidtest" -a "$app" != "list" ]; then
+appid=$(flatpak list --columns=application | rev | grep ^"$appr" | rev)
+apprun 
 elif [ "$app" = "list" ]; then
 applist
 else
+if [ -z "$appitest" -a -n "$app" ]; then
+echo "$0: $app not installed"
+applist
+else
 appuse
+fi
 fi
