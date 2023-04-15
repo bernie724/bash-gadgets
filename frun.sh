@@ -46,7 +46,7 @@ elif [ "$app" = "list" ]; then
 applist
 else
 if [ -z "$appitest" -a -n "$app" ]; then
-echo "$0: $app not installed"
+echo "[$app not installed]"
 applist
 else
 appuse
