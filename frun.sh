@@ -26,7 +26,7 @@ exit
 }
 
 applist () {
-flatpak list --columns=application | rev | cut -d\. -f1 | rev | sort -u | grep -v 'default\|openh264\|Platform' > "$apptmp"
+flatpak list --columns=application | rev | cut -d\. -f1 | rev | sort -u | grep -iv 'default\|openh264\|Platform\|i386\|Intel\|Adwaita\|HEIC\|Sdk' > "$apptmp"
 #flatpak list --columns=application | cut -d\. -f3 | sort -u | grep -v 'default\|openh264\|Platform' > "$apptmp"
 echo -n "Available apps: "
 while read file; do
