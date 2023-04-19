@@ -3,7 +3,7 @@
 ##Installs flatpak apps from a list of flatpak ids in a file
 
 #variables
-setdir=/tmp/sets
+setdir=$PWD
 
 #functions
 setusage () {
