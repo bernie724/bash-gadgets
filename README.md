@@ -13,19 +13,6 @@ bernie@demeter:~/bash-gadgets$ ./frun.sh list
 Available apps: AbiWord,dragonsapprentice,Epiphany,ffmpeg-full,firefox,Shortwave
 ```
 
-##### finstset.sh
-```sh
-bernie@demeter:~/bash-gadgets$ ./finstset.sh 
-./finstset.sh installs flatpak apps from a list
-Usage: ./finstset.sh <file.set>
-test.set
-bernie@demeter:~/bash-gadgets$ ./finstset.sh test.set
-Installing runtime/org.kde.kstars.Locale/x86_64/stable
-Installing app/org.kde.kstars/x86_64/stable
-...
-
-```
-
 ##### dudir.sh
 ```sh
 ##sub-directory disk usage summary of current working dir
