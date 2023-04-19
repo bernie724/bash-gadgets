@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=root
+GenericName=Terminal emulator
+Comment=Fast, feature-rich, GPU based terminal
+TryExec=kitty
+Exec=sudo kitty -e bash
+Icon=org.freedesktop.fwupd
+Categories=System;TerminalEmulator;
+X-XFCE-Source=file:///usr/share/applications/kitty.desktop
+Path=
+Terminal=false
+StartupNotify=false
