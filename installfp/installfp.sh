@@ -1,4 +1,6 @@
 #!/bin/bash
+##script to install custom xfce settings and use flatpak as the main desktop apps manager on ubuntu [xubuntu mini]
+##on xubuntu mini after install run as root or as an admin
 admid=1000
 admin=$(id "$admid" | cut -d\( -f2 | cut -d\) -f1)
 if [ $UID -eq 0 ]; then
