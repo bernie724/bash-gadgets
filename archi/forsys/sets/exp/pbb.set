@@ -1,0 +1,14 @@
+intel-ucode
+pacman-contrib
+networkmanager
+dhcpcd
+openssh
+htop
+terminus-font
+vim
+lighttpd
+gnu-netcat
+tmux
+neofetch
+btrfs-progs
+tar

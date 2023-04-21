@@ -1,0 +1,114 @@
+#!/bin/bash
+##B.Thompson
+##package tasks
+iwin () {
+#check for a wm
+cd $idir
+cat "$blist" > "$plist"
+if [ "$awin" != "none" ]; then
+echo "xorg" >> "$plist"
+echo "xorg-xinit" >> "$plist"
+touch "$askel"/.Xauthority
+fi
+#setup i3
+if [ "$awin" = "i3" ]; then
+echo "i3" >> "$plist"
+echo "dmenu" >> "$plist"
+echo "feh" >> "$plist"
+cat "$xlist" >> "$plist"
+echo "feh --bg-max ~/.config/bgi3.png" > "$askel/.xinitrc"
+echo "exec i3" >> "$askel/.xinitrc"
+if [ "$aauto" = "true" -a "$pbon" = "false" ]; then
+echo '(startx 2> /dev/null) && exit' > "$askel/.profile"
+fi
+fi
+#setup openbox 
+if [ "$awin" = "openbox" ]; then
+echo "openbox" >> "$plist"
+echo "obconf" >> "$plist"
+echo "menumaker" >> "$plist"
+echo "tint2" >> "$plist"
+echo "feh" >> "$plist"
+cat "$xlist" >> "$plist"
+echo "tint2 &" > "$askel/.xinitrc"
+echo "exec openbox-session" >> "$askel/.xinitrc"
+if [ "$aauto" = "true" -a "$pbon" = "false" ]; then
+echo '(startx 2> /dev/null) && exit' > "$askel/.profile"
+fi
+fi
+#setup xfce4
+if [ "$awin" = "xfce4" ]; then
+echo "xfce4" >> "$plist"
+echo "xfce4-goodies" >> "$plist"
+cat "$xlist" >> "$plist"
+echo "exec xfce4-session" > "$askel/.xinitrc"
+if [ "$aauto" = "true" -a "$pbon" = "false" ]; then
+echo '(startxfce4 2> /dev/null) && exit' > "$askel/.profile"
+fi
+fi
+}
+
+ipacs () {
+##packages pacman
+cd $idir
+pnum=$(cat "$plist" | wc -l)
+msg "${BOLD}pacman will install $pnum packages, this will take a bit${CLS}.."
+if [ "$pverbose" = "false" ]; then
+echo -n "Installing."
+fi
+while read set; do
+if [ "$pverbose" = "true" ]; then
+echo -n "[$pnum] Installing $set..."
+((pacman -Sy --noconfirm --noprogressbar "$set" > /dev/null 2>&1) && echo ".okay.") || echo ".failed!"
+else
+((pacman -Sy --noconfirm --noprogressbar "$set" > /dev/null 2>&1) && echo -n ".") || echo -n "!"
+fi
+let pnum--
+done < "$plist"
+if [ "$pverbose" = "false" ]; then
+echo ".okay."
+fi
+}
+iflats () {
+cd "$idir"
+echo -n "Install flatpak..."
+(pacman -Sy --noconfirm --noprogressbar flatpak > /dev/null 2>&1) || echo ".Failed to install flatpak!"
+echo ".okay."
+echo -n "Add flatpak repo [flathub]..."
+(flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo > /dev/null 2>&1) && echo ".okay."
+fnum=$(cat "$flist" | wc -l)
+msg "${BOLD}flatpak will install $fnum apps, this will take a while${CLS}.."
+if [ "$fverbose" = "false" ]; then
+echo -n "Installing."
+fi
+while read set; do
+shortset=$(echo "$set" | rev | cut -d. -f1 | rev | cut -d/ -f1)
+if [ "$fverbose" = "true" ]; then
+echo -n "[$fnum] Installing $shortset..."
+((flatpak install --noninteractive -y "$set" > /dev/null 2>&1) && echo ".okay.") || (flatpak install --noninteractive -y --or-update "$set" > /dev/null 2>&1 && echo ".retry okay.") || echo "...retry failed!"
+else
+((flatpak install --noninteractive -y "$set" > /dev/null 2>&1) && echo -n ".") || (flatpak install --noninteractive -y --or-update "$set" > /dev/null 2>&1 && echo -n "..") || echo -n "!!"
+fi
+let fnum--
+done < "$flist"
+if [ "$fverbose" = "false" ]; then
+echo ".okay."
+fi
+}
+imods () {
+##install kmods
+echo -n "Install modules..."
+if [ -s "$mlist" ]; then
+while read amod; do
+echo "$amod" > /etc/modules-load.d/"$amod".conf && echo -n "."
+done < "$mlist"
+fi
+echo ".okay."
+}
+
+ioffice () {
+aoffice=org.libreoffice.LibreOffice
+echo -n "Installing office suite [$aoffice]..."
+cp /etc/skel/.config/mimeapps.list.aoffice /etc/skel/.config/mimeapps.list && echo -n ".."
+((flatpak install --noninteractive -y "$aoffice" > /dev/null 2>&1) && echo ".okay.") || (flatpak install --noninteractive -y --or-update "$aoffice" > /dev/null 2>&1 && echo ".retry okay.") || echo "...retry failed!"
+}

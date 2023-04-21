@@ -35,5 +35,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda6       308G  211G   82G  73% /
 ```
 
-##### installfp.sh
-Installs flatpak as the primary apps manager on apt and dpkg systems, setup and used on xubuntu mini.
+##### xubuntui/xubuntui.sh [xubuntui.tgz]
+Installs flatpak as the primary apps manager on apt and dpkg systems, setup and tested on xubuntu mini.
+##### archi/archi.sh [archi.tgz]
+Installs full system/xfce4/flatpak (vm) system from the arch installer iso.
