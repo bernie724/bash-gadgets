@@ -1,13 +1,44 @@
 #!/bin/bash
+#single panel xfce dark conf
+mon1="monitorHDMI-2"
+monc="$mon1"
+bgdir=/usr/local/backgrounds
+ssaver=false
+listbg=false
+echo "Active monitors:"
+xfconf-query -c xfce4-desktop -l /backdrop/screen0/ | cut -d/ -f4 | sort -u | grep ^monitor > mon.txt
+while read file; do
+echo -n "$file: "; xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$file"/workspace0/last-image | rev | cut -d\/ -f1 | rev
+done < mon.txt
+echo "If the background doesn't update.
+Change your monitor <mon1> in this script"
+echo -n "current: [$mon1]: "; read monc
+if [ -n "$monc" ]; then
+mon1="$monc"
+fi
+
+#build bg array
+if [ -d "$bgdir" ]; then
+bi=()
+for t in $(ls $bgdir); do
+bi1=$(echo "$t ")
+bi+=( $bi1 )
+done 
+else
+echo "background directory does not exist!" && exit 1
+fi
+
+if [ "$listbg" = "true" ]; then
+echo "Available backgrounds:"
+echo ${bi[@]}
+fi
 
 ##basic xfce desktop
-bi=(Flow.png Silk.png Spring.png Waves.png Aqua.jpg Dune.jpg Garden.jpg LadyBird.jpg Storm.jpg Wood.jpg Blinds.jpg FreshFlower.jpg GreenMeadow.jpg RainDrops.jpg TwoWings.jpg YellowFlower.jpg Arc-Colors-Transparent-Wallpaper.png)
-bgdir=/usr/share/backgrounds/mate/nature
+bg1=blackout1.jpg
 bg1=$(echo ${bi[0]})
-bg2=$(echo ${bi[3]})
-bg3=$(echo ${bi[8]})
-bg4=$(echo ${bi[4]})
-mon1="monitorVirtual1"
+bg2=$(echo ${bi[1]})
+bg3=$(echo ${bi[2]})
+bg4=$(echo ${bi[3]})
 xtty=$(tty | grep tty | head -1)
 echo -n "$0 will reset xfce4 [y/n] "; read -n1 resetx
 if [ "$resetx" = "y" ]; then
@@ -22,12 +53,21 @@ xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace3/last-image
 xfconf-query -c xfwm4 -p /general/double_click_action -n -t 'string' -s 'shade' 2> /dev/null
 xfconf-query -c xfwm4 -p /general/workspace_count -n -t 'int' -s '4' 2> /dev/null
 xfconf-query -c xsettings -p /Gtk/FontName -n -t 'string' -s "URW Gothic 10" 2> /dev/null
-xfconf-query -c xsettings -p /Net/ThemeName -n -t 'string' -s 'Adwaita-dark' 2> /dev/null
-xfconf-query -c xsettings -p /Net/IconThemeName -n -t 'string' -s 'breeze-dark' 2> /dev/null
+xfconf-query -c xsettings -p /Net/ThemeName -n -t 'string' -s 'Greybird-dark' 2> /dev/null
+xfconf-query -c xsettings -p /Net/IconThemeName -n -t 'string' -s 'Kora' 2> /dev/null
 xfconf-query -c xfce4-panel -p /panels/dark-mode -n -t 'bool' -s 'true' 2> /dev/null
 xfconf-query -c xfce4-panel -p /panels/panel-1/leave-opacity -n -t 'int' -s '75' 2> /dev/null
 xfconf-query -c xfce4-panel -p /panels/panel-1/enter-opacity -n -t 'int' -s '80' 2> /dev/null
 xfconf-query -c xfce4-panel -p /panels/panel-1/position-locked -n -t 'bool' -s 'true' 2> /dev/null
+xfconf-query -c xfce4-panel -p /panels/panel-1/autohide-behavior -n -t 'int' -s 0
+xfconf-query -c xfce4-panel -p /panels/panel-1/background-image -n -t 'string' -s ""
+xfconf-query -c xfce4-panel -p /panels/panel-1/background-style -n -t 'int' -s 1
+xfconf-query -c xfce4-panel -p /panels/panel-1/length -n -t 'int' -s 100
+xfconf-query -c xfce4-panel -p /panels/panel-1/length-adjust -n -t 'bool' -s true
+xfconf-query -c xfce4-panel -p /panels/panel-1/mode -n -t 'int' -s 0
+xfconf-query -c xfce4-panel -p /panels/panel-1/nrows -n -t 'int' -s 1
+xfconf-query -c xfce4-panel -p /panels/panel-1/output-name -n -t 'string' -s "Primary"
+xfconf-query -c xfce4-panel -p /panels/panel-1/background-style -t int -s 1
 xfconf-query -c xfce4-desktop -p /desktop-icons/gravity -n -t 'int' -s '0' 2> /dev/null
 xfconf-query -c xfce4-desktop -p /desktop-icons/single-click -n -t 'bool' -s 'true' 2> /dev/null
 xfconf-query -c xfce4-desktop -p /desktop-icons/icon-size -n -t 'int' -s '30' 2> /dev/null
@@ -48,6 +88,10 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-2/middle-click -n -t 'int' -s '1'
 xfconf-query -c xfce4-panel -p /plugins/plugin-2/grouping -n -t 'bool' -s 'false' 2> /dev/null
 xfconf-query -c xfce4-panel -p /plugins/plugin-2/show-labels -n -t 'bool' -s 'false' 2> /dev/null
 xfconf-query -c xfce4-panel -p /plugins/plugin-2/show-tooltip -n -t 'bool' -s 'false' 2> /dev/null
+xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t 'bool' -s ''$ssaver'' 2> /dev/null
+#create arrays 
+xfconf-query -c xfce4-panel -p /panels/panel-1/background-color -n -a -t int -s 0 -t int -s 65535 -t int -s 0 -t int -s 65535
+xfconf-query -c xfce4-panel -p /panels/panel-1/background-rgba -n -a -t int -s 1 -t int -s 1 -t int -s 1 -t int -s 0
 #config terminal dark
 echo '
 [Configuration]

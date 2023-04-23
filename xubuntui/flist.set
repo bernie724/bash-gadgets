@@ -1,13 +1,7 @@
-org.gnome.Loupe
-org.gnome.Music
-org.gnome.Totem
-org.gnome.baobab
-org.x.Warpinator
-org.gnome.Epiphany
 fr.handbrake.ghb
 com.abisource.AbiWord
-org.gnome.TextEditor
 de.haeckerfelix.Shortwave
+org.gnome.TextEditor
 org.gnome.Calculator
 io.posidon.Paper
 com.github.dahenson.agenda

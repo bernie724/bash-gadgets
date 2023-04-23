@@ -50,7 +50,8 @@ ln -s /usr/local/bin /home/$admin/bin
 fi
 cp -p *.sh /home/$admin/bin && rm /home/$admin/bin/$0
 cp -p .profile /home/$admin 
-cp -rp /usr/share/backgrounds/mate/abstract/* /usr/share/backgrounds/mate/nature/
+mkdir -p /usr/local/backgrounds
+cp -rp /usr/share/backgrounds/mate/abstract/* /usr/share/backgrounds/mate/nature/* /usr/local/backgrounds/
 cp -rp xfce4 /home/$admin/.config/ && echo ".okay."
 chown -R $admin /home/$admin
 echo -n "Install flatpak..."
@@ -84,6 +85,7 @@ fi
 echo
 echo "bin scripts:"
 ls /home/$admin/bin
+chown -R $admin /usr/local
 echo -n "reboot [y/N] "; read -n1 rebootnow
 if [ "$rebootnow" = "Y" -o "$rebootnow" = "y" ]; then
 reboot
