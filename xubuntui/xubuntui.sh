@@ -51,7 +51,8 @@ fi
 cp -p *.sh /home/$admin/bin && rm /home/$admin/bin/$0
 cp -p .profile /home/$admin 
 mkdir -p /usr/local/backgrounds
-cp -rp /usr/share/backgrounds/mate/abstract/* /usr/share/backgrounds/mate/nature/* /usr/local/backgrounds/
+cp -p /usr/share/backgrounds/mate/abstract/* /usr/local/backgrounds/ 
+cp -p /usr/share/backgrounds/mate/nature/* /usr/local/backgrounds/
 cp -rp xfce4 /home/$admin/.config/ && echo ".okay."
 chown -R $admin /home/$admin
 echo -n "Install flatpak..."
