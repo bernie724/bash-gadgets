@@ -39,3 +39,23 @@ Filesystem      Size  Used Avail Use% Mounted on
 Installs flatpak as the primary apps manager on apt and dpkg systems, setup and tested on xubuntu mini.
 ##### archi/archi.sh [archi.tgz]
 Installs full system/xfce4/flatpak (vm) system from the arch installer iso.
+
+##### chtheme/chtheme.sh
+CLI theme changer/maker for xfce4
+
+```sh
+Usage: ./chtheme.sh <theme>
+Available Themes: 
+dark
+etst
+greenhall
+nightsky
+pastel
+sampledark
+samplelite
+waterfall
+
+Usage: ./mktheme.sh <theme>
+bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh darkstar
+Success: Use './chtheme.sh darkstar' to apply your theme
+```
