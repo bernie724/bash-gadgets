@@ -41,7 +41,7 @@ Installs flatpak as the primary apps manager on apt and dpkg systems, setup and 
 Installs full system/xfce4/flatpak (vm) system from the arch installer iso.
 
 ##### chtheme/chtheme.sh
-CLI theme changer/maker for xfce4
+CLI single panel theme changer/maker for xfce4
 
 ```sh
 Usage: ./chtheme.sh <theme>
