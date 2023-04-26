@@ -1,5 +1,5 @@
 #### Backup xfconf settings and panel before using. xfce4: Settings > Settings Manager > Panel ["Backup and Restore"]
-##### After theme.conf is right. Use mktheme to create a them to load.
+##### After theme.conf is right. Use mktheme to create a theme to load.
 ```sh
 bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh
 Usage: ./mktheme.sh <theme>
