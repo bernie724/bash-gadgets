@@ -1,4 +1,12 @@
 #### Backup xfconf settings and panel before using. xfce4: Settings > Settings Manager > Panel ["Backup and Restore"]
+##### After theme.conf is right. Use mktheme to create a them to load.
+```sh
+bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh
+Usage: ./mktheme.sh <theme>
+bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh blackcat
+Success: Use './chtheme.sh blackcat' to apply your theme
+```
+
 1. blackcat
 ![darkcat](https://user-images.githubusercontent.com/20193396/234690865-b1d6e9b8-86db-4181-9037-be2acccf3d9b.png)
 2. darkspace
@@ -12,6 +20,7 @@
 bernie@demeter:~/bash-gadgets/chtheme$ ./chtheme.sh 
 Usage: ./chtheme.sh <theme>
 Available Themes: 
+blackcat
 darkcat
 darkspace
 darkstars
