@@ -1,7 +1,6 @@
 #!/bin/bash
 defaulttheme () {
 ##var
-ppb="3" #windows button plugin number
 gt1="Greybird"
 tn1="Greybird"
 fn1="URW Gothic 10"
