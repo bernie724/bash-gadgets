@@ -48,11 +48,11 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-$ppw1/rows -n -t 'int' -s "1"
 xfconf-query -c xfce4-panel -p /plugins/plugin-$ppw1/miniature-view -n -t 'bool' -s "false" 
 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$ppc1/mode -n -t 'int' -s "0" 
-
 xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/button-icon -n -t 'string' -s "xfce4_xicon3" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/button-title -n -t 'string' -s "Menu" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/show-button-title -n -t 'bool' -s "true" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/show-generic-names -n -t 'bool' -s "true" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/show-tooltips -n -t 'bool' -s "false" 
+xfconf-query -c xfce4-panel -p /plugins/plugin-7 -n -t string -s screenshooter
 }
 

@@ -21,6 +21,6 @@ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-panel-label -n 
 xfconf-query -c xfce4-panel -p /panels/panel-1/background-color -n -a -t int -s 0 -t int -s 65535 -t int -s 0 -t int -s 65535
 xfconf-query -c xfce4-panel -p /panels/panel-1/background-rgba -n -a -t int -s 1 -t int -s 1 -t int -s 1 -t int -s 0
 xfconf-query -c xfwm4 -p /general/workspace_names -n -a -t string -s 1 -t string -s 2 -t string -s 3 -t string -s 4
-xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -n -a -t int -s 1 -t int -s 12 -t int -s 4 -t int -s 2 -t int -s 3 -t int -s 5 -t int -s 6 -t int -s 7 -t int -s 8 -t int -s 9 -t int -s 10 -t int -s 14 -t int -s 13
+xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -n -a -t int -s 1 -t int -s 12 -t int -s 4 -t int -s 2 -t int -s 3 -t int -s 5 -t int -s 7 -t int -s 6 -t int -s 8 -t int -s 9 -t int -s 10 -t int -s 14 -t int -s 13
 }
 
