@@ -31,22 +31,14 @@ Success: Use './chtheme.sh blackcat' to apply your theme
 ![litebeach](https://user-images.githubusercontent.com/20193396/234691109-3f7712b5-eacb-4452-bdd2-cefbd523d58d.png)
 
 ```sh
-bernie@demeter:~/bash-gadgets/chtheme$ ./chtheme.sh 
+./chtheme.sh 
 Usage: ./chtheme.sh <theme>
 Available Themes: 
 blackcat
-darkcat
 darkspace
-darkstars
-graynz
-greenhall
-greenvolcano
-greenwaterfall
 litebeach
-litebluearthouse
-litepastel
 redspider
-bernie@demeter:~/bash-gadgets/chtheme$ ./chtheme.sh litebeach
+./chtheme.sh litebeach
 current: [monitorHDMI-2]: 
 reset xfce [y/N] 
 
