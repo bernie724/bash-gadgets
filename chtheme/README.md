@@ -1,7 +1,21 @@
 #### Backup xfconf settings and panel before using. xfce4: Settings > Settings Manager > Panel ["Backup and Restore"]
 ##### After theme.conf is right. Use mktheme to create a theme to load.
 ```sh
-bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh
+#Install
+git clone https://github.com/bernie724/bash-gadgets/
+cd bash-gadgets/chtheme/
+./getmonitors.sh 
+Monitor Name: [Background] 
+monitoreDP-1: xfce-verticals.png
+monitorHDMI-2: 45jgm8.jpg
+Connected: 
+monitoreDP-1: connected
+monitorHDMI-2: connected
+
+#vim theme.conf and 
+#change mon1="monitorHDMI-2" 
+#change bgdir= to a backgrounds dir
+./mktheme.sh #creates a basic theme of your current desktop
 Usage: ./mktheme.sh <theme>
 bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh blackcat
 Success: Use './chtheme.sh blackcat' to apply your theme
