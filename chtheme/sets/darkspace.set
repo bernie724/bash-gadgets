@@ -1,4 +1,4 @@
-#set dark.set
+#set darkspace.set
 gt1="Clearlooks Sky Border XFCE"
 tn1="Arc-Dark"
 in1="Papirus"
@@ -7,5 +7,11 @@ fn1="URW Gothic 10"
 dm1="true"
 bs1="1"
 po1="89"
+psl1="false"
+ddg1="0"
+dwm1="false"
 bg1="blackout1.jpg"
+bg2="blackout3.jpg"
+bg3="darkbluesharp.jpg"
+bg4="darkblueyellowneon.jpg"
 

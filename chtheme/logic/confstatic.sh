@@ -7,7 +7,6 @@ xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/output-name -n -t 'strin
 xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/size -n -t 'int' -s "22"
 xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/icon-size -n -t 'int' -s "20"
 xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/position -n -t 'string' -s 'p=8;x=0;y=0' 
-xfconf-query -c xfce4-desktop -p /desktop-icons/single-click -n -t 'bool' -s 'true' 
 xfconf-query -c xfce4-desktop -p /desktop-icons/icon-size -n -t 'int' -s '30' 
 xfconf-query -c xfce4-desktop -p /desktop-icons/show-tooltips -n -t 'bool' -s 'false' 
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home -n -t 'bool' -s 'false' 

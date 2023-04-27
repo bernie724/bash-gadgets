@@ -25,16 +25,16 @@ xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/autohide-behavior -n -t 
 ##desktop
 xfconf-query -c xfce4-desktop -p /desktop-icons/gravity -r && sleep .5 
 xfconf-query -c xfce4-desktop -p /desktop-icons/gravity -n -t 'int' -s "$ddg1" 
-xfconf-query -c xfce4-desktop -p /backdrop/single-workspace-mode -n -t 'bool' -s "$dwm1"
 xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t 'bool' -s "$sse1"
 }
 
 confbackground () {
+xfconf-query -c xfce4-desktop -p /backdrop/single-workspace-mode -n -t 'bool' -s "$dwm1"
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace0/last-image -n -t 'string' -s "$bgdir/$bg1" 
 if [ "$dwm1" = "false" ]; then
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon2"/workspace1/last-image -n -t 'string' -s "$bgdir/$bg2" 
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon3"/workspace2/last-image -n -t 'string' -s "$bgdir/$bg3" 
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon4"/workspace3/last-image -n -t 'string' -s "$bgdir/$bg4" 
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace1/last-image -n -t 'string' -s "$bgdir/$bg2" 
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace2/last-image -n -t 'string' -s "$bgdir/$bg3" 
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace3/last-image -n -t 'string' -s "$bgdir/$bg4" 
 fi
 }
 

@@ -13,9 +13,9 @@ bg1="darkmnt.jpg" #desktop background: settings -> Desktop/Background
 ddg1="0" #desktop icon gravity: settings -> Desktop/Icons/Icons orientation
 gwc1="4" #workspace count
 psl1="false" #tasklist plugins show labels
+dwm1="true"
 
 ##todo for mktheme.sh
-dwm1="true"
 gdc1="shade"
 gfo1="85"
 gio1="90"
