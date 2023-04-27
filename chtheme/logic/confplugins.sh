@@ -1,6 +1,6 @@
 #!/bin/bash
 confplugins () {
-##create panel 1 array
+##create panel array
 xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/plugin-ids -n -a -t int -s $menu -t int -s $clock -t int -s $launch -t int -s $pager -t int -s $tlist -t int -s $space -t int -s $stray -t int -s $sshot -t int -s $audio -t int -s $power -t int -s $notify -t int -s $action
 
 ##create plugins
@@ -42,15 +42,4 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/show-generic-names -n -t 'b
 xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/show-tooltips -n -t 'bool' -s "false" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$action/appearance -n -t int -s 0
 
-##testing
-#xfconf-query -c xfce4-panel -p /plugins/plugin-14 -n -t 'string' -s "actions" 
-#xfconf-query -c xfce4-panel -p /plugins/plugin-$ppc1 -n -t 'string' -s "clock" 
-#xfconf-query -c xfce4-panel -p /plugins/plugin-11 -r 
-#xfconf-query -c xfce4-panel -p /plugins/plugin-11 -n -t 'string' -s "launcher"
-#panel plugin arrays
-#xfconf-query -c xfce4-panel -p /plugins/plugin-7 -n -t string -s screenshooter
-#action array buttons on or off
-#terminal shortcuts
-#xfconf-query -c xfce4-panel -p /plugins/plugin-$launch -r
-#xfconf-query -c xfce4-panel -p /plugins/plugin-11/items -n -a -t string -s "16825475001.desktop" -t string -s "16825475722.desktop"
 }

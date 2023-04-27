@@ -15,7 +15,7 @@ xfconf-query -c xfwm4 -p /general/frame_opacity -n -t 'int' -s "$gfo1"
 xfconf-query -c xfwm4 -p /general/inactive_opacity -n -t 'int' -s "$gio1"
 xfconf-query -c xfwm4 -p /general/move_opacity -n -t 'int' -s "$gmo1"
 xfconf-query -c xfwm4 -p /general/resize_opacity -n -t 'int' -s "$gro1"
-##panel 1
+##panel
 xfconf-query -c xfce4-panel -p /panels/dark-mode -n -t 'bool' -s "$dm1"
 xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/background-style -n -t int -s "$bs1"
 xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/leave-opacity -n -t 'int' -s "$pll1"
