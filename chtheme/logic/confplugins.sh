@@ -35,9 +35,9 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-$pager/miniature-view -n -t 'bool
 xfconf-query -c xfce4-panel -p /plugins/plugin-$clock/mode -n -t 'int' -s "0" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$clock/tooltip-format -n -t string -s "%T"
 ##menu properties
-xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/button-icon -n -t 'string' -s "xfce4_xicon3" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/button-title -n -t 'string' -s "Menu" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/show-button-title -n -t 'bool' -s "true" 
+xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/button-icon -n -t 'string' -s "$menuicon" 
+xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/button-title -n -t 'string' -s "$menuname" 
+xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/show-button-title -n -t 'bool' -s "$showmenuname" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/show-generic-names -n -t 'bool' -s "true" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$menu/show-tooltips -n -t 'bool' -s "false" 
 xfconf-query -c xfce4-panel -p /plugins/plugin-$action/appearance -n -t int -s 0
