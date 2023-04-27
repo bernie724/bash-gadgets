@@ -17,11 +17,11 @@ xfconf-query -c xfwm4 -p /general/move_opacity -n -t 'int' -s "$gmo1"
 xfconf-query -c xfwm4 -p /general/resize_opacity -n -t 'int' -s "$gro1"
 ##panel 1
 xfconf-query -c xfce4-panel -p /panels/dark-mode -n -t 'bool' -s "$dm1"
-xfconf-query -c xfce4-panel -p /panels/panel-$ppp1/background-style -n -t int -s "$bs1"
-xfconf-query -c xfce4-panel -p /panels/panel-$ppp1/leave-opacity -n -t 'int' -s "$pll1"
-xfconf-query -c xfce4-panel -p /panels/panel-$ppp1/enter-opacity -n -t 'int' -s "$ple1"
-xfconf-query -c xfce4-panel -p /panels/panel-$ppp1/position-locked -n -t 'bool' -s "$ppl1"
-xfconf-query -c xfce4-panel -p /panels/panel-$ppp1/autohide-behavior -n -t 'int' -s "$pab1"
+xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/background-style -n -t int -s "$bs1"
+xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/leave-opacity -n -t 'int' -s "$pll1"
+xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/enter-opacity -n -t 'int' -s "$ple1"
+xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/position-locked -n -t 'bool' -s "$ppl1"
+xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/autohide-behavior -n -t 'int' -s "$pab1"
 ##desktop
 xfconf-query -c xfce4-desktop -p /desktop-icons/gravity -r && sleep .5 
 xfconf-query -c xfce4-desktop -p /desktop-icons/gravity -n -t 'int' -s "$ddg1" 
@@ -36,23 +36,5 @@ xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon2"/workspace1/last-image
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon3"/workspace2/last-image -n -t 'string' -s "$bgdir/$bg3" 
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon4"/workspace3/last-image -n -t 'string' -s "$bgdir/$bg4" 
 fi
-}
-
-confplugins () {
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppb1/middle-click -n -t 'int' -s '1' 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppb1/grouping -n -t 'bool' -s 'false' 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppb1/show-tooltip -n -t 'bool' -s 'false' 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppb1/show-labels -n -t 'bool' -s "$psl1" 
-
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppw1/rows -n -t 'int' -s "1" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppw1/miniature-view -n -t 'bool' -s "false" 
-
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppc1/mode -n -t 'int' -s "0" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/button-icon -n -t 'string' -s "xfce4_xicon3" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/button-title -n -t 'string' -s "Menu" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/show-button-title -n -t 'bool' -s "true" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/show-generic-names -n -t 'bool' -s "true" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-$ppa1/show-tooltips -n -t 'bool' -s "false" 
-xfconf-query -c xfce4-panel -p /plugins/plugin-7 -n -t string -s screenshooter
 }
 

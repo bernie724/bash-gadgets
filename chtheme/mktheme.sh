@@ -11,9 +11,9 @@ in1=$(xfconf-query -c xsettings -p /Net/IconThemeName)
 cn1=$(xfconf-query -c xsettings -p /Gtk/CursorThemeName)
 fn1=$(xfconf-query -c xsettings -p /Gtk/FontName)
 dm1=$(xfconf-query -c xfce4-panel -p /panels/dark-mode)
-bs1=$(xfconf-query -c xfce4-panel -p /panels/panel-1/background-style)
+bs1=$(xfconf-query -c xfce4-panel -p /panels/$mainpanel/background-style)
 po1=$(xfconf-query -c xfwm4 -p /general/popup_opacity)
-psl1=$(xfconf-query -c xfce4-panel -p /plugins/plugin-"$ppb1"/show-labels) # -n -t 'bool' -s "$psl1"
+psl1=$(xfconf-query -c xfce4-panel -p /plugins/plugin-"$tlist"/show-labels) # -n -t 'bool' -s "$psl1"
 bg1=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace0/last-image | rev | cut -d\/ -f1 | rev)
 ddg1=$(xfconf-query -c xfce4-desktop -p /desktop-icons/gravity)
 ##make the theme

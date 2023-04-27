@@ -4,7 +4,7 @@ set1="$theme.set"
 setdir="$PWD/sets"
 if [ -n "$theme" ]; then
  if [ -f "$setdir/$set1" ]; then
- rm "$setdir/$set" && echo "theme "$theme" removed"
+ rm "$setdir/$set1" && echo "theme "$theme" removed"
  else
  echo "no set $setdir/$set1"
  fi
