@@ -22,9 +22,17 @@ bg2=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace1/last
 bg3=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace2/last-image | rev | cut -d\/ -f1 | rev)
 bg4=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace3/last-image | rev | cut -d\/ -f1 | rev)
 fi
+xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/plugin-ids | grep ^[0-9] > /tmp/posarr.dat
+arrtot=$(cat /tmp/posarr.dat | wc -l)
+arrtot0=$((arrtot - 1))
+posarr=()
+while read pos; do
+posarr+=("$pos")
+done < /tmp/posarr.dat
 ##make the theme
 if [ "$dwm1" = "true" ]; then
 echo '#set '"$set1"'
+posarr='"("${posarr[@]}")"'
 gt1="'$gt1'"
 tn1="'$tn1'"
 in1="'$in1'"
@@ -40,6 +48,7 @@ bg1="'$bg1'"
 ' > "$setdir"/"$set1" && echo -n "Success: "
 elif [ "$dwm1" = "false" ]; then
 echo '#set '"$set1"'
+posarr='"("${posarr[@]}")"'
 gt1="'$gt1'"
 tn1="'$tn1'"
 in1="'$in1'"

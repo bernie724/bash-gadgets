@@ -1,8 +1,5 @@
 #!/bin/bash
 confplugins () {
-##create panel array
-xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/plugin-ids -n -a -t int -s $menu -t int -s $clock -t int -s $launch -t int -s $pager -t int -s $tlist -t int -s $space -t int -s $stray -t int -s $sshot -t int -s $audio -t int -s $power -t int -s $notify -t int -s $action
-
 ##create plugins
 xfconf-query -c xfce4-panel -p /plugins/plugin-$menu -n -t 'string' -s "applicationsmenu"
 xfconf-query -c xfce4-panel -p /plugins/plugin-$clock -n -t 'string' -s "clock"

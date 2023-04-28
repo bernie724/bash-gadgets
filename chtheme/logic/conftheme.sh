@@ -26,6 +26,16 @@ xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/autohide-behavior -n -t 
 xfconf-query -c xfce4-desktop -p /desktop-icons/gravity -r && sleep .5 
 xfconf-query -c xfce4-desktop -p /desktop-icons/gravity -n -t 'int' -s "$ddg1" 
 xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t 'bool' -s "$sse1"
+##mainpanel plugins positions
+if (( ${#posarr[@]} )); then
+pluginids="xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/plugin-ids -n -a
+$(for pluginid in "${posarr[@]}"
+do
+echo -n  "-t int -s $pluginid " 
+done
+echo)"
+${pluginids}
+fi
 }
 
 confbackground () {
