@@ -25,12 +25,14 @@ redspider
 current: [monitorHDMI-2]: #replace with the connected monitor
 reset xfce [y/N] #reset will close xfce terminals, usually needed the first run 
 Theme redspider loaded
+#after the only desktop panel has been created items on the panel can be added, removed and/or moved when using mktheme.sh
 
 ##to create your own themes from a desktop setup (not everything is absorbed, only stuff I have got to)
 #vim theme.conf and 
 #change mon1="monitorHDMI-2" to a connected monitor
 #change bgdir= to a backgrounds dir
-./mktheme.sh #creates a basic theme of your current desktop
+#change your desktop to your a desired combination i.e. theme/font/style/bg
+./mktheme.sh #creates a basic theme of the current desktop
 Usage: ./mktheme.sh <theme>
 ./mktheme.sh blackcat
 Success: Use './chtheme.sh blackcat' to apply your theme
