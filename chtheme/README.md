@@ -2,7 +2,7 @@
 #### Backup xfconf settings and panel before using. xfce4: Settings > Settings Manager > Panel ["Backup and Restore"]
 ##### After theme.conf is right. Use mktheme to create a theme to load.
 ```sh
-#Install
+##Install
 git clone https://github.com/bernie724/bash-gadgets/
 cd bash-gadgets/chtheme/
 ./getmonitors.sh 
@@ -13,8 +13,22 @@ Connected:
 monitoreDP-1: connected
 monitorHDMI-2: connected
 
+##Change theme sample run
+./chtheme.sh 
+Usage: ./chtheme.sh <theme>
+Available Themes: 
+blackcat
+darkspace
+litebeach
+redspider
+./chtheme.sh redspider
+current: [monitorHDMI-2]: #replace with the connected monitor
+reset xfce [y/N] #reset will close xfce terminals, usually needed the first run 
+Theme redspider loaded
+
+##to create your own themes from a desktop setup (not everything is absorbed, only stuff I have got to)
 #vim theme.conf and 
-#change mon1="monitorHDMI-2" 
+#change mon1="monitorHDMI-2" to a connected monitor
 #change bgdir= to a backgrounds dir
 ./mktheme.sh #creates a basic theme of your current desktop
 Usage: ./mktheme.sh <theme>
@@ -42,6 +56,5 @@ redspider
 ./chtheme.sh litebeach
 current: [monitorHDMI-2]: 
 reset xfce [y/N] 
-
 Theme litebeach loaded
 ```
