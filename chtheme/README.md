@@ -1,3 +1,4 @@
+### Basic single panel xfce4 theme changer
 #### Backup xfconf settings and panel before using. xfce4: Settings > Settings Manager > Panel ["Backup and Restore"]
 ##### After theme.conf is right. Use mktheme to create a theme to load.
 ```sh
@@ -17,7 +18,7 @@ monitorHDMI-2: connected
 #change bgdir= to a backgrounds dir
 ./mktheme.sh #creates a basic theme of your current desktop
 Usage: ./mktheme.sh <theme>
-bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh blackcat
+./mktheme.sh blackcat
 Success: Use './chtheme.sh blackcat' to apply your theme
 ```
 
