@@ -2,21 +2,22 @@
 
 ##### frun.sh
 ```sh
-bernie@demeter:~/bash-gadgets$ ./frun.sh 
+./frun.sh 
 ::Run a flatpak app by the apps shortname::
 Usage: ./frun.sh <shortnameApp>
 ::List available apps::
 Usage: ./frun.sh [list]
-bernie@demeter:~/bash-gadgets$ ./frun.sh firefox
+./frun.sh firefox
 Running: org.mozilla.firefox 
-bernie@demeter:~/bash-gadgets$ ./frun.sh list
+./frun.sh list
 Available apps: AbiWord,dragonsapprentice,Epiphany,ffmpeg-full,firefox,Shortwave
 ```
 
 ##### dudir.sh
 ```sh
 ##sub-directory disk usage summary of current working dir
-bernie@demeter:/usr$ dudir.sh 
+##link, add or copy dudir.sh to a PATH
+dudir.sh 
 791M	bin
 752K	games
 213M	include
@@ -46,16 +47,10 @@ CLI single panel theme changer/maker for xfce4
 ```sh
 Usage: ./chtheme.sh <theme>
 Available Themes: 
-dark
-etst
-greenhall
-nightsky
-pastel
-sampledark
-samplelite
-waterfall
+darkstar
+litebeach
 
 Usage: ./mktheme.sh <theme>
-bernie@demeter:~/bash-gadgets/chtheme$ ./mktheme.sh darkstar
+./mktheme.sh darkstar
 Success: Use './chtheme.sh darkstar' to apply your theme
 ```
