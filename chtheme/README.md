@@ -1,6 +1,6 @@
 ### Basic single panel xfce4 theme changer
 #### Backup xfconf settings and panel before using. xfce4: Settings > Settings Manager > Panel ["Backup and Restore"]
-##### After theme.conf is right. Use mktheme to create a theme to load.
+##### After theme.conf is right. Use ./mktheme to create a theme to load.
 ```sh
 ##Install
 git clone https://github.com/bernie724/bash-gadgets/
