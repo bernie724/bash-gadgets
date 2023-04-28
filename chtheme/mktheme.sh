@@ -22,13 +22,14 @@ bg2=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace1/last
 bg3=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace2/last-image | rev | cut -d\/ -f1 | rev)
 bg4=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace3/last-image | rev | cut -d\/ -f1 | rev)
 fi
-xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/plugin-ids | grep ^[0-9] > /tmp/posarr.dat
-arrtot=$(cat /tmp/posarr.dat | wc -l)
+xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/plugin-ids | grep ^[0-9] > "$postmp" 
+arrtot=$(cat "$postmp" | wc -l)
 arrtot0=$((arrtot - 1))
 posarr=()
 while read pos; do
 posarr+=("$pos")
-done < /tmp/posarr.dat
+done < "$postmp"
+rm "$postmp"
 ##make the theme
 if [ "$dwm1" = "true" ]; then
 echo '#set '"$set1"'
