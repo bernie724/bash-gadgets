@@ -9,7 +9,6 @@ source logic/conftheme.sh
 source logic/confstatic.sh
 source logic/conftheme.sh
 source logic/confplugins.sh
-source logic/checktheme.sh
 source logic/resettheme.sh
 
 ##simple single panel desktop changer; reads files created with mktheme.sh in sets dir
@@ -31,11 +30,9 @@ confplugins
 confbackground
 echo -n "reset xfce [y/N] "; read -n1 resetxf; echo
  if [ "$resetxf" = "y" -o "$resetxf" = "Y" ]; then
- #checktheme #verify
  resettheme
  else
  echo "Theme $theme loaded"
- #checktheme
  fi
 elif [ -z $theme ]; then
 chusage
