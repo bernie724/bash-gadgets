@@ -1,7 +1,7 @@
 #!/bin/bash
-source theme.conf
-source logic/resettheme.sh
-source logic/conftheme.sh
+source ../theme.conf
+source ../logic/resettheme.sh
+source ../logic/conftheme.sh
 bgdir=/usr/share/backgrounds/xfce
 dwm1=true
 bg1=xfce-blue.jpg
