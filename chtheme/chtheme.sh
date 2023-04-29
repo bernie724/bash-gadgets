@@ -16,7 +16,9 @@ if [ -f sets/"$set1" ]; then
 defaulttheme
 source sets/"$set1"
 monc="$mon1"
-echo -n "current: [$mon1]: "; read monc
+echo "Monitors: "
+xrandr | awk '{ print "monitor"$1":",$2 }' | grep connected | grep -v disconnected 
+echo -n "Config Monitor: [$mon1]: "; read monc
  if [ -n "$monc" ]; then
  mon1="$monc"
  fi
