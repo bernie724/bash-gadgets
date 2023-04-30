@@ -16,6 +16,7 @@ po1=$(xfconf-query -c xfwm4 -p /general/popup_opacity)
 psl1=$(xfconf-query -c xfce4-panel -p /plugins/plugin-"$tlist"/show-labels) # -n -t 'bool' -s "$psl1"
 dwm1=$(xfconf-query -c xfce4-desktop -p /backdrop/single-workspace-mode)
 ddg1=$(xfconf-query -c xfce4-desktop -p /desktop-icons/gravity)
+sse1=$(xfconf-query -c xfce4-screensaver -p /saver/enabled)
 bg1=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace0/last-image | rev | cut -d\/ -f1 | rev)
 if [ "$dwm1" = "false" ]; then
 bg2=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace1/last-image | rev | cut -d\/ -f1 | rev)
@@ -23,8 +24,6 @@ bg3=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace2/last
 bg4=$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace3/last-image | rev | cut -d\/ -f1 | rev)
 fi
 xfconf-query -c xfce4-panel -p /panels/panel-$mainpanel/plugin-ids | grep ^[0-9] > "$postmp" 
-arrtot=$(cat "$postmp" | wc -l)
-arrtot0=$((arrtot - 1))
 posarr=()
 while read pos; do
 posarr+=("$pos")
@@ -44,6 +43,7 @@ bs1="'$bs1'"
 po1="'$po1'"
 psl1="'$psl1'"
 ddg1="'$ddg1'"
+sse1="'$sse1'"
 dwm1="'$dwm1'"
 bg1="'$bg1'"
 ' > "$setdir"/"$set1" && echo -n "Success: "
@@ -60,6 +60,7 @@ bs1="'$bs1'"
 po1="'$po1'"
 psl1="'$psl1'"
 ddg1="'$ddg1'"
+sse1="'$sse1'"
 dwm1="'$dwm1'"
 bg1="'$bg1'"
 bg2="'$bg2'"
