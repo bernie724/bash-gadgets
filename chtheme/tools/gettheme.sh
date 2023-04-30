@@ -1,5 +1,5 @@
 #!/bin/bash
-source theme.conf
+source ../theme.conf
 gt1=$(xfconf-query -c xfwm4 -p /general/theme)
 tn1=$(xfconf-query -c xsettings -p /Net/ThemeName)
 in1=$(xfconf-query -c xsettings -p /Net/IconThemeName)
