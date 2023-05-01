@@ -40,8 +40,12 @@ fi
 
 confbackground () {
 xfconf-query -c xfce4-desktop -p /backdrop/single-workspace-mode -n -t 'bool' -s "$dwm1"
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace0/image-style -n -t 'int' -s "5"
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace0/last-image -n -t 'string' -s "$bgdir/$bg1" 
 if [ "$dwm1" = "false" ]; then
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace1/image-style -n -t 'int' -s "5"
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace2/image-style -n -t 'int' -s "5"
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace3/image-style -n -t 'int' -s "5"
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace1/last-image -n -t 'string' -s "$bgdir/$bg2" 
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace2/last-image -n -t 'string' -s "$bgdir/$bg3" 
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/"$mon1"/workspace3/last-image -n -t 'string' -s "$bgdir/$bg4" 
